@@ -1,67 +1,60 @@
 <!DOCTYPE HTML>
 <html ng-app="myapp">
   <head>
-    <title>Angular Pretty Checkable</title>
+    <title>Angular Slidezilla</title>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/pretty-checkable.css">
+    <link type="text/css" rel="stylesheet" href="src/angular-slidezilla.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
-    <script src="js/angular-pretty-checkable.js"></script>
+    <script src="src/angular-slidezilla.js"></script>
     <script src="js/app.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="header">
-        <h1>Angular Pretty Checkable Demo</h1>
+        <h1>Angular Slidezilla Demo</h1>
       </div>
-      <div class="row" ng-controller="checkdemo">
+      <div class="row" ng-controller="sliderdemo">
         <div class="col-md-8 col-sm-12">
-          This is the demo of Angular Pretty Checkable. A pretty checkable directive based on jQuery Pretty Checkable.
+          This is the demo of Angular Slidezilla: a simple slider directive.
           <br><br>
           View source on this page to see the various options available (also available in the github repo).
           <br><br>
-          For more information and full documents see <a href="https://github.com/itslenny/angular-pretty-checkable">Github</a>
+          For more information and full documents see <a href="https://github.com/itslenny/angular-slidezilla">Github</a>
         </div>
         <div class="col-md-4 col-sm-12">
           <div class="well">
-            <h4>Checkboxes</h4>
-            <pretty-checkbox class="clearfix" ng-model="myModel.one" label="'This is one'"></pretty-checkbox>
-            <pretty-checkbox class="clearfix" ng-model="myModel.two" label="'This one too'"></pretty-checkbox>
-            <pretty-checkbox class="clearfix" ng-model="myModel.three" label="'This one three'"></pretty-checkbox>
-            <pretty-checkbox class="clearfix" ng-model="myModel.four" label="'This is disabled'" disabled="true"></pretty-checkbox>
-            <pretty-checkbox class="clearfix" ng-model="myModel.five" label="'This is disabled / checked'" disabled="true"></pretty-checkbox>
-            
+            <h4>Basic</h4>
+            <slider ng-model="slider1.val"></slider>
             <br><br>
-            Values: {{myModel.one}}, {{myModel.two}}, {{myModel.three}}, {{myModel.four}}, {{myModel.five}}
+            Value: {{slider1.val}}
           </div>
           <div class="well">
-            <h4>Checkboxes (custom values)</h4>
-            <pretty-checkbox class="clearfix" ng-model="myModel.yahoo" value="'yahoo (label optional)'"></pretty-checkbox>
-            <pretty-checkbox class="clearfix" ng-model="myModel.wahoo" value="'wahoo'" label="'This is wahoo'"></pretty-checkbox>
-            <pretty-checkbox class="clearfix" ng-model="myModel.tahoo" value="'tahoo'" label="'This is tahoo'"></pretty-checkbox>
+            <h4>Static</h4>
+            <slider ng-model="slider2.val" min="-25" max="25" step="1"></slider>
             <br><br>
-            Values: {{myModel.yahoo}}, {{myModel.wahoo}}, {{myModel.tahoo}}
+            Value: {{slider2.val}}
           </div>
           <div class="well">
-            <h4>Radios</h4>
-            <pretty-radio class="clearfix" value="'one'" ng-model="myModel.radio" label="'This is one'"></pretty-radio>
-            <pretty-radio class="clearfix" value="'two'" ng-model="myModel.radio" label="'This one too (disabled)'" disabled="true"></pretty-radio>
-            <pretty-radio class="clearfix" value="'three'" ng-model="myModel.radio" label="'This one three'"></pretty-radio>
-            <pretty-radio class="clearfix" value="'four'" ng-model="myModel.radio" label="'This one four'"></pretty-radio>
+            <h4>Dynamic</h4>
+            <slider ng-model="slider3.val" min="slider3.min" max="slider3.max" step="slider3.step"></slider><br>
+            Value: {{slider3.val}}
+            <br><hr><br>
+            Min: {{slider3.min}}<br>
+            <slider ng-model="slider3.min" min="-50" max="0" step="1"></slider><br><br>
+            Max: {{slider3.max}}<br>
+            <slider ng-model="slider3.max" min="10" max="50" step="1"></slider><br><br>
+            Step: {{slider3.step}}<br>
+            <slider ng-model="slider3.step" min="0.5" max="2" step="0.5"></slider>
             <br><br>
-            Value: {{myModel.radio}}
+
           </div>
           <div class="well">
-            <h4>Radios in ngRepeat</h4>
-            <pretty-radio class="clearfix" ng-repeat="radio in radios" value="$index+1" ng-model="myModel.radios" label="radio"></pretty-radio>
+            <h4>Range</h4>
+            <slider ng-model="slider4.val"></slider>
             <br><br>
-            Value: {{myModel.radios}}
-          </div>
-          <div class="well">
-            <h4>Check / radio with Label Left</h4>
-            <pretty-radio class="clearfix" value="'one'" label-left="true" ng-model="myModel.radio" label="'This is one'"></pretty-radio>
-            <pretty-checkbox class="clearfix" label-left="true" ng-model="myModel.two" label="'This one too'"></pretty-checkbox>
-          </div>          
+            Values: {{slider4.val}}
+          </div>      
         </div>
       </div>
     </div>        
