@@ -3,7 +3,12 @@ Angular Slidezilla
 
 Angular Slidezilla is a pure angular slider directive which makes it incredibly simple to have reliable sliders in angular.
 
-Talk is cheap: [See THE DEMO here](http://itslenny.github.io/angular-slider/).
+Talk is cheap: [See THE DEMO here](http://itslenny.github.io/angular-slidezilla/).
+
+##Why Slidezilla?
+
+There are several other angular slider directives. Most of them depend on jQuery and/or are really glitchy or don't have the features I wanted. So I created my own and I needed a unique name for the plugin and this was the first thing that popped in my head.
+
 
 ##Installation
 
