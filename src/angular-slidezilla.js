@@ -89,19 +89,21 @@ angular.module('angular-slidezilla', [])
           e.preventDefault();
           if(dragging) return;
           var newVal=scope.model;
+          var offsetX = e.offsetX || e.layerX;
+
           if(typeof newVal == 'number') {
-            if (e.offsetX > handles[0].offsetLeft) {
+            if (offsetX > handles[0].offsetLeft) {
               newVal += scope.step;
             } else {
               newVal -= scope.step;
             }
           }else{
-            if(e.target == track && e.offsetX < handles[0].offsetLeft) {
+            if(e.target == track && offsetX < handles[0].offsetLeft) {
               newVal[0] -= scope.step;
-            }else if(e.target == track && e.offsetX > handles[1].offsetLeft) {
+            }else if(e.target == track && offsetX > handles[1].offsetLeft) {
               newVal[1] += scope.step;
             }else{
-              if(e.target == selection && e.offsetX > e.target.offsetWidth/2){
+              if(e.target == selection && offsetX > e.target.offsetWidth/2){
                 newVal[1] -= scope.step;
               }else{
                 newVal[0] += scope.step;
