@@ -1,78 +1,100 @@
-Angular Pretty Checkable
+Angular Slidezilla
 ========================
 
-Pure angular pretty checkbox / radio directive. Makes it incredibly simple to have pretty checkboxes / radios in angular.
+Angular Slidezilla is a pure angular slider directive which makes it incredibly simple to have reliable sliders in angular.
 
-Actions speak louder than words: [See THE DEMO here](http://itslenny.github.io/angular-pretty-checkable/).
-
-##Acknowledgements 
-
-Uses the un-altered css / images from [PrettyCheckable](http://arthurgouveia.com/prettyCheckable/)
-
-Code based on [angular-ui](http://angular-ui.github.io/bootstrap/) buttons directive.
+Talk is cheap: [See THE DEMO here](http://itslenny.github.io/angular-slider/).
 
 ##Installation
 
 Dependencies: Angular
 
-Download and include angular-pretty-checkable.js and pretty-checkable.css
+Download and include angular-slidezilla.js and pretty-slidezilla.css
 
-Create an angular app and inject pretty-checkable. That's about it.
+Create an angular app and inject angular-slidezilla. That's about it.
 
 **bower**
 ```bash
-bower install angular-pretty-checkable
+bower install angular-slidezilla
 ```
 
 ##Usage
 
-**checkbox**
+**basic**
 ```html
-<pretty-checkbox ng-model="myModel.one" label="'This is one'"></pretty-checkbox>
-<pretty-checkbox ng-model="myModel.two" label="'This is two'"></pretty-checkbox>
-<pretty-checkbox ng-model="myModel.three" label="'This is three'"></pretty-checkbox>
+<slider ng-model="slider1.val"></slider>
+```
+controller:
+```js
+    //set slider value as a number to have 1 slider
+    //all properties default values
+    $scope.slider1 = {val:5};
 ```
 
-**radio**
+**static**
 ```html
-<pretty-radio value="'one'" ng-model="myModel.radio" label="'This is one'"></pretty-radio>
-<pretty-radio value="'two'" ng-model="myModel.radio" label="'This is two'"></pretty-radio>
-<pretty-radio value="'three'" ng-model="myModel.radio" label="'This is three'"></pretty-radio>
+<slider ng-model="slider2.val" min="-25" max="25" step="1"></slider>
+```
+controller:
+```js
+    //set slider value as a number to have 1 slider
+    // properties defined in html
+    $scope.slider2 = {val:-7};
+```
+
+**dynamic**
+```html
+<slider ng-model="slider3.val" min="slider3.min" max="slider3.max" step="slider3.step"></slider>
+```
+controller:
+```js
+    //set slider value as a number to have 1 slider
+    // properties defined below
+    $scope.slider3 = {
+        val:5.5,
+        min: 0,
+        max: 10,
+        step: 0.5
+    };
+```
+
+**range**
+```html
+<slider ng-model="slider4.val"></slider>
+```
+controller:
+```js
+    //set value as an array to have 2 sliders
+    $scope.slider4 = { val:[5,20] };
 ```
 
 ##Configuration
 
-**States**
-* disabled - add disable="true"
-* checked - model matches value (for checks defaults to true)
-
-**Options**
 <table>
   <tbody>
     <tr>
       <td>Name</td>
       <td>Values</td>
       <td>Description</td>
+      <td>Default</td>      
     </tr>
     <tr>
-      <td>value</td>
-      <td>variable or single quoted text</td>
-      <td>Required for radio<br>Used as true value for checkbox</td>
+      <td>min</td>
+      <td>variable or number (float)</td>
+      <td>Min value of slider.</td>
+      <td>0</td>
     </tr>
     <tr>
-      <td>label</td>
-      <td>variable or single quoted text</td>
-      <td>Optional. Defaults to value if ommited.</td>
+      <td>max</td>
+      <td>variable or number (float)</td>
+      <td>Max value of slider</td>
+      <td>100</td>      
     </tr>
     <tr>
-      <td>disabled</td>
-      <td>boolean</td>
-      <td>Disables checkbox if set to true.</td>
-    </tr>
-    <tr>
-      <td>label-left</td>
-      <td>boolean</td>
-      <td>Puts the label before (left of) the control</td>
+      <td>step</td>
+      <td>variable or number (float)</td>
+      <td>Step value of slider. Slider will increment by this value.</td>
+      <td>5</td>      
     </tr>
   </tbody>
 </table>
@@ -80,8 +102,6 @@ bower install angular-pretty-checkable
 
 ##Customization
 
-The sprites can be customized simply by modifying the sprites files included here. CSS and images are the same as [PrettyCheckable](http://arthurgouveia.com/prettyCheckable/) see more details about customization on his page.
-
-You can also download the PSD [here](http://itslenny.github.io/angular-pretty-checkable/prettyCheckable.psd) (thanks to [Bruno O. Barros](http://ilustrebob.com.br/) and [Arthur Gouveia](arthurgouveia)) for the graphics and css.
+Simply modify angular-slidezilla.css
 
 

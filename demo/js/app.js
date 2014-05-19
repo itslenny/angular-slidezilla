@@ -1,31 +1,27 @@
 'use strict';
 
-var myApp = angular.module('myapp', ['pretty-checkable'])
+var myApp = angular.module('myapp', ['angular-slidezilla'])
 
-.config(['prettyCheckableConfig',function(prettyCheckableConfig){
-  //prettyCheckableConfig.toggleEvent='mousemove';
+myApp.controller('sliderdemo', ['$scope',function($scope){
+
+    //set slider value as a number to have 1 slider
+    //all properties default values
+    $scope.slider1 = {val:5};
+    
+    //set slider value as a number to have 1 slider
+    // properties defined in html
+    $scope.slider2 = {val:-7};
+    
+    //set slider value as a number to have 1 slider
+    // properties defined below
+    $scope.slider3 = {
+        val:5.5,
+        min: 0,
+        max: 10,
+        step: 0.5
+    };
+    
+    //set value as an array to have 2 sliders
+    $scope.slider4 = { val:[5,20] };
+
 }]);
-
-myApp.controller('checkdemo', ['$scope',function($scope){
-  $scope.myModel={
-    one:false,two:true,three:false,four:false,five:true,
-    yahoo:false,wahoo:false,tahoo:'tahoo',
-    radio:'one',
-    radios:2
-  };
-  $scope.radios=['option one','option two','option three','option four','option five']
-}]);
-
-/*
-.config(['$routeProvider','$locationProvider','$httpProvider', function($routeProvider,$locationProvider,$httpProvider) {
-  $locationProvider.hashPrefix('!');//.html5Mode(true)
-  //load routes from stored routes object
-  for(var path in Kitovet.routes){
-    $routeProvider.when(path, Kitovet.routes[path]);
-  };
-  $routeProvider.otherwise({redirectTo: '/'});
-  $httpProvider.interceptors.push('myHttpInterceptor');
-}])
-
-.run(["$rootScope", "$location","UserService","$dialogs",function($rootScope,$location,UserService,$dialogs){
-*/
