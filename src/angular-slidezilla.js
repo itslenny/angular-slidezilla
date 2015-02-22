@@ -1,3 +1,12 @@
+/* @preserve
+ *
+ * angular-slidezilla
+ * https://github.com/itslenny/angular-slidezilla
+ *
+ * Version: 0.1.3 - 02/21/2015
+ * License: MIT
+ */
+
 'use strict';
 
 //init module
@@ -209,11 +218,8 @@ angular.module('angular-slidezilla', [])
             if(cv0 || cv1){
               scope.model=[cv0 || scope.model[0],cv1 || scope.model[1]];
             }
-
           }
-
         }
-
       },
       template:'<div class="slider slider-horizontal"><div class="slider-track"><div class="slider-selection"></div><div class="slider-handle round"></div><div class="slider-handle round"></div></div><div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div><input type="text" class="slider"></div></div>',
       replace: true
